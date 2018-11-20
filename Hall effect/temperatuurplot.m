@@ -49,7 +49,7 @@ errorbar(theta,R,sR,sR,stheta,stheta,'r-.')
 plot([20 140],[0 0],'k:')
 clear
 xlabel('Temperatuur (°C)')
-ylabel('Hallconstante (??)')
+ylabel('Hallconstante (m^3/C)')
 title('Temperatuursafhankelijkheid van Hall constante')
 legend('n-gedopeerd','p-gedopeerd')
 grid on
