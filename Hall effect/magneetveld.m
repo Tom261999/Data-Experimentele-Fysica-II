@@ -18,14 +18,14 @@ B4 = [0.05 0.28 0.62 0.91 1.39 1.69 1.98 2.36 2.67 3.09 3.28 3.58 3.79 4.10 4.29
 
 %Extra voorfactoren geven eenheden conversie van en G->T
 Idaal = [I3,I4];
-Bdaal = 0.0001.*[B3,B4];
+Bdaal = 0.1.*[B3,B4];
 Istijg = [I1,I2];
-Bstijg = 0.0001.*[B1,B2];
+Bstijg = 0.1.*[B1,B2];
 clear I1 I2 I3 I4 B1 B2 B3 B4
 sIstijg = 0.01.*ones(1,length(Istijg));
-sBstijg = 0.0001.*0.01.*ones(1,length(Bstijg));
+sBstijg = 0.1.*0.01.*ones(1,length(Bstijg));
 sIdaal = 0.01.*ones(1,length(Bdaal));
-sBdaal = 0.0001.*0.01.*ones(1,length(Bdaal));
+sBdaal = 0.1.*0.01.*ones(1,length(Bdaal));
 
 for i = 1:length(Idaal)-2
     if Idaal(i) == Idaal(i+1)
@@ -57,4 +57,5 @@ errorbar(Idaal,Bdaal,sBdaal,sBdaal,sIdaal,sIdaal,'r.')
 legend('I : 4 -> -4 A','I : -4 -> 4 A','location','northwest')
 xlabel('Stroomsterkte I (A)'),ylabel('Magnetischveldsterkte B (T)')
 title('Hysterese-curve')
+grid on
 hold off
