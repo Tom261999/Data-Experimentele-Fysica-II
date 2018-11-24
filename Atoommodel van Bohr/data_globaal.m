@@ -8,15 +8,15 @@ disp('--Tom')
 
 %Voorbeeld: [t,v] = importdatabohr('globaal\gemeten potentiaal\set 2.txt')
 disp(' ')
-disp('De ingestuurde potentiaal is gegeven in "t_in_n","v_in_n" met n de set.')
+disp('De ingestuurdee potentiaal is gegeven in "t_in_n","v_in_n" met n de set.')
 disp('Analoog zal de gemetenpotentiaal gegeven zijn door "t_gem_n" & "v_gem_n".')
 
 %Ingestuurde potentialen
-[t_in_1,v_in_1] = importdatabohr('globaal\ingestuurd potentiaal\set 1.txt');
-[t_in_2,v_in_2] = importdatabohr('globaal\ingestuurd potentiaal\set 2.txt');
-[t_in_3,v_in_3] = importdatabohr('globaal\ingestuurd potentiaal\set 3.txt');
-[t_in_4,v_in_4] = importdatabohr('globaal\ingestuurd potentiaal\set 4.txt');
-[t_in_5,v_in_5] = importdatabohr('globaal\ingestuurd potentiaal\set 5.txt');
+[t_in_1,v_in_1] = importdatabohr('globaal\ingestuurde potentiaal\set 1.txt');
+[t_in_2,v_in_2] = importdatabohr('globaal\ingestuurde potentiaal\set 2.txt');
+[t_in_3,v_in_3] = importdatabohr('globaal\ingestuurde potentiaal\set 3.txt');
+[t_in_4,v_in_4] = importdatabohr('globaal\ingestuurde potentiaal\set 4.txt');
+[t_in_5,v_in_5] = importdatabohr('globaal\ingestuurde potentiaal\set 5.txt');
 
 %Gemeten potentialen
 [t_gem_1,v_gem_1] = importdatabohr('globaal\gemeten potentiaal\set 1.txt');
