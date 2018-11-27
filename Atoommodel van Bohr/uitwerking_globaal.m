@@ -33,8 +33,6 @@ for i = 1:length(v_gem_1)
     end
 end
 
-plot(t_gem_1,v_gem_1)
-
 %Idem voor de andere grafieken:
 for i = 1:length(v_gem_2)
     if v_gem_2(i) < 0.025
