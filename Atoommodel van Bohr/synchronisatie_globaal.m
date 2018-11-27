@@ -212,7 +212,7 @@ for i = 1:sync2(5)
     v_in_5(1) = [ ];
 end
 
-%nieuw plot:
+% % nieuw plot:
 figure('name','gesynchroniseerde curves'), hold on
 plot(t_gem_1,v_gem_1,'x-')
 plot(t_gem_2,v_gem_2,'x-')
@@ -220,7 +220,3 @@ plot(t_gem_3,v_gem_3,'x-')
 plot(t_gem_4,v_gem_4,'x-')
 plot(t_gem_5,v_gem_5,'x-'), hold off
 legend('1','2','3','4','5')
-disp('end of script')
-
-
-disp('note to self: lengten van de vectoren standaardiseren en alle waarden uitwiddelen!')
