@@ -33,8 +33,6 @@ for i = 1:length(v_gem_1)
     end
 end
 
-plot(t_gem_1,v_gem_1)
-
 %Idem voor de andere grafieken:
 for i = 1:length(v_gem_2)
     if v_gem_2(i) < 0.025
@@ -107,7 +105,6 @@ while i < length(v_gem_5)
         break
     end
 end
-clear i
 
 disp('sync = '), disp(sync)
 % disp('minimum is gegeven door i = '), disp(min(sync))
@@ -135,12 +132,12 @@ disp('sync = '), disp(sync)
 % end
 
 % disp(' '), disp('De nieuwe plots:')
-% figure('name','Alle datasets : Gesynchroniseerd'), hold on
-% plot(t_gem_1,v_gem_1)
-% plot(t_gem_2,v_gem_2)
-% plot(t_gem_3,v_gem_3)
-% plot(t_gem_4,v_gem_4)
-% plot(t_gem_5,v_gem_5), hold off
+figure('name','Alle datasets : Gesynchroniseerd'), hold on
+plot(t_gem_1,v_gem_1)
+plot(t_gem_2,v_gem_2)
+plot(t_gem_3,v_gem_3)
+plot(t_gem_4,v_gem_4)
+plot(t_gem_5,v_gem_5), hold off
 
 
 %Nota: Dit stuk werkte niet, het begin vand e grafieken is te grillig.
@@ -174,38 +171,34 @@ for i = 1:length(v_in_5)-1
         sync(5) = i;
     end
 end
-
-sync2 = sync-100.*ones(1,5);% I know it's messy, but at last, it works
-sync2(2) = sync2(2)+1;
-sync2(5) = sync2(5)+2;
-sync2(3) = sync2(3)+70;
-sync2(4) = sync2(4)+131;
+sync2 = ones(1,length(sync))*max(sync)-6.*sync%sync;%sync-min(sync).*ones(1,length(sync));
+sync2(5) = sync2(5)-6;
 disp('sync2 = '), disp(sync2)
 %Dan verwijderen we de eerste sync2(i) meetwaarden uit de grafieken opdat
 %deze zouden synchroniseren in de afzwakking:
-for i = 1:sync2(1)
+for i = sync2(1):-1:1
     t_gem_1(length(t_gem_1)) = [ ];
-    v_gem_1(1) = [ ];
+    v_gem_1(i) = [ ];
     t_in_1(length(t_in_1)) = [ ];
-    v_in_1(1) = [ ];
+    v_in_1(i) = [ ];
 end
-for i = 1:sync2(2)
+for i = sync2(2):-1:1
     t_gem_2(length(t_gem_2)) = [ ];
-    v_gem_2(1) = [ ];
+    v_gem_2(i) = [ ];
     t_in_2(length(t_in_2)) = [ ];
-    v_in_2(1) = [ ];
+    v_in_2(i) = [ ];
 end
-for i = 1:sync2(3)
+for i = sync2(3):-1:1
     t_gem_3(length(t_gem_3)) = [ ];
-    v_gem_3(1) = [ ];
+    v_gem_3(i) = [ ];
     t_in_3(length(t_in_3)) = [ ];
-    v_in_3(1) = [ ];
+    v_in_3(i) = [ ];
 end
-for i = 1:sync2(4)
+for i = sync2(4):-1:1
     t_gem_4(length(t_gem_4)) = [ ];
     v_gem_4(1) = [ ];
     t_in_4(length(t_in_4)) = [ ];
-    v_in_4(1) = [ ];
+    v_in_4(i) = [ ];
 end
 for i = 1:sync2(5)
     t_gem_5(length(t_gem_5)) = [ ];
@@ -223,6 +216,3 @@ plot(t_gem_4,v_gem_4,'x-')
 plot(t_gem_5,v_gem_5,'x-'), hold off
 legend('1','2','3','4','5')
 disp('end of script')
-
-
-disp('note to self: lengten van de vectoren standaardiseren en alle waarden uitwiddelen!')
