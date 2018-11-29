@@ -24,34 +24,34 @@ plot(t_gem_5,v_gem_5), hold off
 % % % disp('Is dit wel nuttig?')
 
 %%
-%Datasets aanpassen opdat ze samen starten, we nemen 0.025 als grenswaarde
+%Datasets aanpassen opdat ze samen starten, we nemen 0.0255 als grenswaarde
 %voor ruis. (Puur op het zicht bepaald!)
 
 for i = 1:length(v_gem_1)
-    if v_gem_1(i) < 0.025
-        v_gem_1(i) = 0.025;
+    if v_gem_1(i) < 0.0255
+        v_gem_1(i) = 0.0255;
     end
 end
 
 %Idem voor de andere grafieken:
 for i = 1:length(v_gem_2)
-    if v_gem_2(i) < 0.025
-        v_gem_2(i) = 0.025;
+    if v_gem_2(i) < 0.0255
+        v_gem_2(i) = 0.0255;
     end
 end
 for i = 1:length(v_gem_3)
-    if v_gem_3(i) < 0.025
-        v_gem_3(i) = 0.025;
+    if v_gem_3(i) < 0.0255
+        v_gem_3(i) = 0.0255;
     end
 end
 for i = 1:length(v_gem_4)
-    if v_gem_4(i) < 0.025
-        v_gem_4(i) = 0.025;
+    if v_gem_4(i) < 0.0255
+        v_gem_4(i) = 0.0255;
     end
 end
 for i = 1:length(v_gem_5)
-    if v_gem_5(i) < 0.025
-        v_gem_5(i) = 0.025;
+    if v_gem_5(i) < 0.0255
+        v_gem_5(i) = 0.0255;
     end
 end
 
@@ -62,52 +62,52 @@ end
 
 i = 1;
 while i < length(v_gem_1)
-    if v_gem_1(i) <= 0.025 
+    if v_gem_1(i) <= 0.0255 
         sync(1) = i;
         i = i+1;
-    elseif v_gem_1(i) > 0.025
+    elseif v_gem_1(i) > 0.0255
         break
     end
 end
 i = 1;
 while i < length(v_gem_2)
-    if v_gem_2(i) <= 0.025 
+    if v_gem_2(i) <= 0.0255 
         sync(2) = i;
         i = i+1;
-    elseif v_gem_2(i) > 0.025
+    elseif v_gem_2(i) > 0.0255
         break
     end
 end
 i = 1;
 while i < length(v_gem_3)
-    if v_gem_3(i) <= 0.025 
+    if v_gem_3(i) <= 0.0255 
         sync(3) = i;
         i = i+1;
-    elseif v_gem_3(i) > 0.025
+    elseif v_gem_3(i) > 0.0255
         break
     end
 end
 i = 1;
 while i < length(v_gem_4)
-    if v_gem_4(i) <= 0.025 
+    if v_gem_4(i) <= 0.0255 
         sync(4) = i;
         i = i+1;
-    elseif v_gem_4(i) > 0.025
+    elseif v_gem_4(i) > 0.0255
         break
     end
 end
 i = 1;
 while i < length(v_gem_5)
-    if v_gem_5(i) <= 0.025 
+    if v_gem_5(i) <= 0.0255 
         sync(5) = i;
         i = i+1;
-    elseif v_gem_5(i) > 0.025
+    elseif v_gem_5(i) > 0.0255
         break
     end
 end
 clear i
 
-disp('sync = '), disp(sync)
+% disp('sync = '), disp(sync)
 % disp('minimum is gegeven door i = '), disp(min(sync))
 % disp('Dus ik zal er voor zorgen dat alle reeksen 100 plaatsen voor de start beginnen.')
 
@@ -220,3 +220,5 @@ plot(t_gem_3,v_gem_3,'x-')
 plot(t_gem_4,v_gem_4,'x-')
 plot(t_gem_5,v_gem_5,'x-'), hold off
 legend('1','2','3','4','5')
+
+clear i grens sync sync2
