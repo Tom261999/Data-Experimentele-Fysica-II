@@ -81,3 +81,8 @@ plot(t,y)
 
 figure(42069)
 plot(t,(v_gem_avg-y))
+
+t_test = t(250:990);
+v_test = v_gem(250:990,1);
+
+v_test_2 = v_test' - 0.0124*t_test.^(1.445);
