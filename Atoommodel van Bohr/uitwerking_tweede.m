@@ -91,29 +91,29 @@ disp('sync = '), disp(sync)
 lengten = [length(v_gem_1), length(v_gem_2), length(v_gem_3), length(v_gem_4), length(v_gem_5)]
 
 
-t_gem_1 = t_gem_1(sync(1):1000+sync(1));
-% t_gem_2 = t_gem_2(sync(2):1000+sync());
-% t_gem_3 = t_gem_3(sync(3):1000+sync());
-% t_gem_4 = t_gem_4(sync(4):1000+sync());
-% t_gem_5 = t_gem_5(sync(5):1000+sync());
+t_gem_1 = t_gem_1(sync(1):950+sync(1));
+% t_gem_2 = t_gem_2(sync(2):950+sync());
+% t_gem_3 = t_gem_3(sync(3):950+sync());
+% t_gem_4 = t_gem_4(sync(4):950+sync());
+% t_gem_5 = t_gem_5(sync(5):950+sync());
 
-v_gem_1 = v_gem_1(sync(1):1000+sync(1));
-v_gem_2 = v_gem_2(sync(2):1000+sync(2));
-v_gem_3 = v_gem_3(sync(3):1000+sync(3));
-v_gem_4 = v_gem_4(sync(4):1000+sync(4));
-v_gem_5 = v_gem_5(sync(5):1000+sync(5));
+v_gem_1 = v_gem_1(sync(1):950+sync(1));
+v_gem_2 = v_gem_2(sync(2):950+sync(2));
+v_gem_3 = v_gem_3(sync(3):950+sync(3));
+v_gem_4 = v_gem_4(sync(4):950+sync(4));
+v_gem_5 = v_gem_5(sync(5):950+sync(5));
 
-t_in_1 = t_in_1(sync(1):1000+sync(1));
-% t_in_2 = t_in_2(sync(2):1000+sync());
-% t_in_3 = t_in_3(sync(3):1000+sync());
-% t_in_4 = t_in_4(sync(4):1000+sync());
-% t_in_5 = t_in_5(sync(5):1000+sync());
+t_in_1 = t_in_1(sync(1):950+sync(1));
+% t_in_2 = t_in_2(sync(2):950+sync());
+% t_in_3 = t_in_3(sync(3):950+sync());
+% t_in_4 = t_in_4(sync(4):950+sync());
+% t_in_5 = t_in_5(sync(5):950+sync());
 
-v_in_1 = v_in_1(sync(1):1000+sync(1));
-v_in_2 = v_in_2(sync(2):1000+sync(2));
-v_in_3 = v_in_3(sync(3):1000+sync(3));
-v_in_4 = v_in_4(sync(4):1000+sync(4));
-v_in_5 = v_in_5(sync(5):1000+sync(5));
+v_in_1 = v_in_1(sync(1):950+sync(1));
+v_in_2 = v_in_2(sync(2):950+sync(2));
+v_in_3 = v_in_3(sync(3):950+sync(3));
+v_in_4 = v_in_4(sync(4):950+sync(4));
+v_in_5 = v_in_5(sync(5):950+sync(5));
 t = t_gem_1; %universele tijd nu;
 clear t_in_1 t_in_2 t_in_3 t_in_4 t_in_5
 clear t_gem_1 t_gem_2 t_gem_3 t_gem_4 t_gem_5
@@ -121,19 +121,19 @@ disp('hoera! gesynchroniseerd!')
 
 %% Afkappen na zekere waarde opdat we geen nutteloze waarden overhouden
 
-t = t(1:1000);
+t = t(1:950);
 
-v_gem_1 = v_gem_1(1:1000);
-v_gem_2 = v_gem_2(1:1000);
-v_gem_3 = v_gem_3(1:1000);
-v_gem_4 = v_gem_4(1:1000);
-v_gem_5 = v_gem_5(1:1000);
+v_gem_1 = v_gem_1(1:950);
+v_gem_2 = v_gem_2(1:950);
+v_gem_3 = v_gem_3(1:950);
+v_gem_4 = v_gem_4(1:950);
+v_gem_5 = v_gem_5(1:950);
 
-v_in_1 = v_in_1(1:1000);
-v_in_2 = v_in_2(1:1000);
-v_in_3 = v_in_3(1:1000);
-v_in_4 = v_in_4(1:1000);
-v_in_5 = v_in_5(1:1000);
+v_in_1 = v_in_1(1:950);
+v_in_2 = v_in_2(1:950);
+v_in_3 = v_in_3(1:950);
+v_in_4 = v_in_4(1:950);
+v_in_5 = v_in_5(1:950);
 
 %% plot voor controle
 
@@ -156,7 +156,7 @@ clear v_gem_1 v_gem_2 v_gem_3 v_gem_4 v_gem_5
 clear t_in_1 t_in_2 t_in_3 t_in_4 t_in_5
 clear t_gem_1 t_gem_2 t_gem_3 t_gem_4 t_gem_5
 
-for i = 1:1000
+for i = 1:950
     [temp, stemp] = gemiddelde(v_in(i,:));
     v_in_avg(i) = temp;
     sv_in_avg(i) = stemp;
@@ -175,7 +175,7 @@ plot(t,v_gem_avg), hold on
 %% Rechte opstellen en er van aftrekken
 
 m = (max(v_gem_avg)-min(v_gem_avg))/(max(t)-min(t));
-y = m*(t-t(600))+v_gem_avg(600);
+y = m*(t-t(50))+v_gem_avg(50);
 plot(t,y)
 
 test = (v_gem_avg-y');
@@ -184,3 +184,4 @@ figure(42069)
 plot(t,test)
 
 disp('daar gauss-fit op zetten!')
+disp('derde orde ziet er oké uit, 8ste orde geeft echter de laatste nevenpiek nog mee.')

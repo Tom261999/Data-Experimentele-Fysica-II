@@ -184,3 +184,4 @@ figure(42069)
 plot(t,test)
 
 disp('daar gauss-fit op zetten!')
+disp('4de orde geeft structuur goed weer, zo kunnen we de nevepieken ook goed bepalen.')
