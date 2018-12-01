@@ -70,19 +70,21 @@ v_gem_avg(994) = [ ];
 t(993) = [ ];
 v_gem_avg(993) = [ ];
 
-figure(69)
+figure(5)
 plot(t,v_gem_avg), title('plot zonder nulwaarden'), hold on
 
-%% lin reg
-
-[a,sa,b,sb] = LinRegWillOf(t,v_gem_avg)
-y = (a.*t+b)';
+%% data optimaliseren voor gauss
+% 
+% [a,sa,b,sb] = LinRegWillOf(t,v_gem_avg)
+% y = (a.*t+b)';
+% [vl,vu] = voltages('globaal')
+m = (max(v_gem_avg)-min(v_gem_avg))/(max(t)-min(t));
+y = m*(t-t(550))+v_gem_avg(550);
 plot(t,y)
 
+test = (v_gem_avg-y');
+
 figure(42069)
-plot(t,(v_gem_avg-y))
-
-t_test = t(250:990);
-v_test = v_gem(250:990,1);
-
-v_test_2 = v_test' - 0.0124*t_test.^(1.445);
+plot(t,test)
+title('fucking finally something we can use')
+disp('hierop een 8ste orde gauss fit (som van 8 gaussische functies) levert bruikbare waarden!')
