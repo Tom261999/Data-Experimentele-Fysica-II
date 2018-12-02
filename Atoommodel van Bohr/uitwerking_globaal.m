@@ -52,6 +52,10 @@ end
 
 figure
 errorbar(t,v_gem_avg,sv_gem_avg,sv_gem_avg,'k.--')
+title('Gemiddelde data: globaal')
+xlabel('Tijd')
+ylabel('Voltage (V)')
+
 figure
 plot(t,v_gem_avg), hold on
 
@@ -71,7 +75,7 @@ t(993) = [ ];
 v_gem_avg(993) = [ ];
 
 figure(5)
-plot(t,v_gem_avg), title('plot zonder nulwaarden'), hold on
+plot(t,v_gem_avg,'b.'), title('Globale data: met rechte'), hold on
 
 %% data optimaliseren voor gauss
 % 
@@ -80,11 +84,18 @@ plot(t,v_gem_avg), title('plot zonder nulwaarden'), hold on
 % [vl,vu] = voltages('globaal')
 m = (max(v_gem_avg)-min(v_gem_avg))/(max(t)-min(t));
 y = m*(t-t(550))+v_gem_avg(550);
-plot(t,y)
+plot(t,y,'r--')
+xlabel('tijd')
+ylabel('Voltage (V)')
 
 test = (v_gem_avg-y');
 
 figure(42069)
-plot(t,test)
-title('fucking finally something we can use')
+plot(t,test,'b.')
+xlabel('tijd')
+title('Globale data: transformatie')
 disp('hierop een 8ste orde gauss fit (som van 8 gaussische functies) levert bruikbare waarden!')
+
+%% Klaar voor gaussische fit
+tijd = t;
+data = test;

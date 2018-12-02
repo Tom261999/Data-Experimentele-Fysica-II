@@ -169,6 +169,9 @@ end
 
 figure
 errorbar(t,v_gem_avg,sv_gem_avg,sv_gem_avg,'k.--')
+title('Gemiddelde data: tweede piek')
+ylabel('Voltage (V)')
+xlabel('Tijd')
 figure
 plot(t,v_gem_avg), hold on
 
@@ -181,7 +184,13 @@ plot(t,y)
 test = (v_gem_avg-y');
 
 figure(42069)
-plot(t,test)
+plot(t,test,'b.')
+xlabel('tijd')
+title('Tweede piek data: transformatie')
 
 disp('daar gauss-fit op zetten!')
 disp('derde orde ziet er oké uit, 8ste orde geeft echter de laatste nevenpiek nog mee.')
+
+%% Klaar voor gaussische fit
+tijd = t;
+data = test;
