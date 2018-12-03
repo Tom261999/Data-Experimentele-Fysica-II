@@ -64,6 +64,7 @@ plot(t,v_gem_avg), hold on
 for i = length(t):-1:1
     if v_gem_avg(i) <= 0.03;
         v_gem_avg(i) = [ ];
+        v_in_avg(i) = [ ];
         t(i) = [ ];
     end
 end
