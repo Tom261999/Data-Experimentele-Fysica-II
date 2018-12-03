@@ -66,14 +66,22 @@ for i = length(t):-1:1
         v_gem_avg(i) = [ ];
         v_in_avg(i) = [ ];
         t(i) = [ ];
+        sv_gem_avg(i) = [ ];
+        sv_in_avg(i) = [ ];
     end
 end
 
 %De laatste is hardnekkig en moet handmatig verwijderd worden:
 t(994) = [ ];
-v_gem_avg(994) = [ ];
 t(993) = [ ];
+v_gem_avg(994) = [ ];
 v_gem_avg(993) = [ ];
+sv_gem_avg(994) = [ ];
+sv_gem_avg(993) = [ ];
+v_in_avg(994) = [ ];
+v_in_avg(993) = [ ];
+sv_in_avg(994) = [ ];
+sv_in_avg(993) = [ ];
 
 figure(5)
 plot(t,v_gem_avg,'b.'), title('Globale data: met rechte'), hold on
