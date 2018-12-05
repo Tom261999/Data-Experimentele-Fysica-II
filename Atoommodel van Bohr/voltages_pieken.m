@@ -131,7 +131,7 @@ t_3 = [20.83-0.04 20.83+0.04];
     [temp, stemp] = GewogenGemf(v_in_avg(index),sv_in_avg(index));
     V_in_eerste(3) = temp;
     sV_in_eerste(3) = stemp;
-    clear t_3 index i temp stemp t_nuttig t
+    clear t_3 index i temp stemp t_nuttig t v_in_avg sv_in_avg
 
 %% Tweede piek
 
