@@ -130,3 +130,9 @@ grid on
 
 h = a*e
 sh = e*sa
+
+%% Werkfunctie
+W0 = abs(b)
+sW0 = sb
+% W0 = e*abs(b)
+% sW0 = e*sb
