@@ -1,4 +1,6 @@
 clear, clc, close all
+c = 2.998*10^8; %m/s
+e = 1.602*10^-19; %C
 
 %% Achtergrondmetingen
 run('achtergrond.m')
@@ -63,8 +65,8 @@ for i = 1:4
 end
 clear i
 
-golflengten_hg = ["guess what i don't have on a bus? Wi-Fi!!"];
-disp('Ik heb geen golflengten! nog op te zoeken (zat op de bus tijdens uitwerken)')
+golflengten_hg = (10^(-10)).*[5846 5490 4358 4047]; %meter
+frequenties_hg = c./golflengten_hg; %zie http:\\telescript.denayer.wenk.be/~eko/labo_fysica/SPTheorie_v2010.pdf
 
 %% Ne-lamp
 run('Ne.m')
@@ -88,5 +90,43 @@ for i = 1:3
 end
 clear i
 
-golflengten_ne = ["guess what i don't have on a bus? Wi-Fi!!"];
-disp('Ik heb geen golflengten! nog op te zoeken (zat op de bus tijdens uitwerken)')
+golflengten_ne = (10^(-10)).*[7280 5880 6680]; %m
+% golflengten_ne = (10^(-10)).*[7525 5551 6232]; %m
+frequenties_ne = c./golflengten_ne;
+
+%% Plot alle spanningen t.o.v. frequenties
+
+figure(2)
+plot(frequenties_hg,U_hg,'r*'), hold on, plot(frequenties_ne,U_ne,'b*')
+title('Spanning i.f.v. frequentie')
+xlabel('Frequentie (Hz)')
+ylabel('Spanning (V)')
+legend('Hg','Ne','location','northwest')
+title(legend,'Spectraallamp')
+
+%% Lineaire regressie
+U = [U_ne,U_hg];
+sU = [sU_ne,sU_hg];
+f = [frequenties_ne,frequenties_hg];
+
+figure(3)
+[a,sa,b,sb] = LinRegWillOf(f,U,sU)
+x = 10^14.*[4,7.5];
+    y = a*x+b;
+    ymax = (a+sa)*x+b+sb;
+    ymin = (a-sa)*x+b-sb;
+    plot(x,y,'b--'); hold on
+    plot(x,ymin,'r--'), plot(x,ymax,'r-.')
+    neonplot = errorbar(f(1:3),U(1:3),sU(1:3),'r.')
+    kwikplot = errorbar(f(4:7),U(4:7),sU(4:7),'b.')
+xlabel('Frequentie (Hz)')
+ylabel('Spanning (V)')
+title('Lineaire regressie')
+legend([neonplot kwikplot],'Ne','Hg','location','northwest')
+title(legend,'Spectraallamp')
+grid on
+
+%% Planck's constante
+
+h = a*e
+sh = e*sa
