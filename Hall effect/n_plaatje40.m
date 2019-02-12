@@ -16,7 +16,7 @@ disp('Kijk nog eens na of + en - V_res juist zijn in teken! --Tom')
 
 Ib = 0.001.*[Ib1,Ib2];
 UH = 0.0001.*[UH1,UH2];
-error('Foutenpropagatie voor optellen/aftrekken V_res nog te verwerken in lijnen 20 & 21!')
+% error('Foutenpropagatie voor optellen/aftrekken V_res nog te verwerken in lijnen 20 & 21!')
 sIb = 0.001.*0.01.*ones(1,length(Ib));
 sUH = 0.0001.*0.1.*ones(1,length(UH));
 clear Ib1 Ib2 UH1 UH2 V_res sV_res

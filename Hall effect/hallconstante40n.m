@@ -9,7 +9,7 @@ Bdaal
 Ib(find((Ib<=max(Idaal)) & (Ib>=min(Idaal))));
 
 Uh=UH(1:32)
- [Bb1,sBb1]=interpolatie2(Idaal,sIdaal,Bdaal,sBdaal,Ib,sIb)
+ [Bb1,sBb1]=interpolatie(Idaal,sIdaal,Bdaal,sBdaal,Ib,sIb)
  R=0.0001*Uh./(Bb1*0.039)
 
 deletevalue = [3 4];

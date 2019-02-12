@@ -37,7 +37,7 @@ errorbar(percentage,U_intens,sU_intens,sU_intens,'b.'), hold on
 plot(percentage,U_intens,'k.','MarkerSize',12)
 axis([0 120 0.25 0.45])
 xlabel('Percentage doorgelaten licht')
-ylabel('Spanning (V)')
+ylabel('Spanning U (V)')
 title('Spanning i.f.v. Intensiteit')
 grid on
 hold off
@@ -99,8 +99,8 @@ frequenties_ne = c./golflengten_ne;
 figure(2)
 plot(frequenties_hg,U_hg,'r*'), hold on, plot(frequenties_ne,U_ne,'b*')
 title('Spanning i.f.v. frequentie')
-xlabel('Frequentie (Hz)')
-ylabel('Spanning (V)')
+xlabel('Frequentie f (Hz)')
+ylabel('Spanning U (V)')
 legend('Hg','Ne','location','northwest')
 title(legend,'Spectraallamp')
 
@@ -119,8 +119,8 @@ x = 10^14.*[4,7.5];
     plot(x,ymin,'r--'), plot(x,ymax,'r-.')
     neonplot = errorbar(f(1:3),U(1:3),sU(1:3),'r.')
     kwikplot = errorbar(f(4:7),U(4:7),sU(4:7),'b.')
-xlabel('Frequentie (Hz)')
-ylabel('Spanning (V)')
+xlabel('Frequentie f (Hz)')
+ylabel('Spanning U (V)')
 title('Lineaire regressie')
 legend([neonplot kwikplot],'Ne','Hg','location','northwest')
 title(legend,'Spectraallamp')
@@ -136,3 +136,8 @@ W0 = abs(b)
 sW0 = sb
 % W0 = e*abs(b)
 % sW0 = e*sb
+
+%% Drempelwaarde
+
+f_0 = -b/a
+sf_0 = sqrt(sa^2*(b/a^2)^2+sb^2*(1/a)^2)
