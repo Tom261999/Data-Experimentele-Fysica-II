@@ -19,9 +19,12 @@ for i = 1:length(theta_ptc)
 end
 
 %% Afkoeling
-X_afkoeling = zeros(2,length(afkoeling_temperatuur(1,:)))
+X_afkoeling = zeros(2,length(afkoeling_temperatuur(1,:)));
 for i = 1:2
     for j = 1:length(afkoeling_temperatuur(i,:))
         [X_afkoeling(i,j),s_X_afkoeling(i,j)] = bereken(afkoeling_weerstand(i,j),M_afkoeling(i),L,s_K,s_M_afkoeling(i),s_L);
     end    
 end
+
+%%
+clear i j
