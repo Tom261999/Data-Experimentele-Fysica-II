@@ -69,7 +69,8 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
 
 % NTC
 
-    [a,sa,b,sb] = LinRegWillOf(afkoeling_temperatuur(1,:),X_afkoeling(1,:),s_X_afkoeling(1,:));
+    [a,sa,b,sb] = LinRegWillOf(afkoeling_temperatuur(1,:),...
+        X_afkoeling(1,:),s_X_afkoeling(1,:));
 
     disp('Voor NTC (afkoeling):')
     disp(['    ','a = ',num2str(a),'+-',num2str(sa)])
@@ -77,14 +78,18 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
 
     % Plot maken
         figure(), grid on, box on, hold on;
-        errorbar(afkoeling_temperatuur(1,:),X_afkoeling(1,:),s_X_afkoeling(1,:),s_X_afkoeling(1,:),ones(1,length(afkoeling_temperatuur(1,:))),ones(1,length(afkoeling_temperatuur(1,:))),'k.','MarkerSize',12)
+        errorbar(afkoeling_temperatuur(1,:),X_afkoeling(1,:),...
+            s_X_afkoeling(1,:),s_X_afkoeling(1,:),ones(1,length(...
+            afkoeling_temperatuur(1,:))),ones(1,length(...
+            afkoeling_temperatuur(1,:))),'k.','MarkerSize',12)
 
         title('Weerstand NTC: Afkoeling: Lineaire Regressie')
         xlabel('Temperatuur \theta (°C)')
         ylabel('Weerstand X (\Omega)')
         %axis([15 70 1000 7000])
 
-        x = [min(afkoeling_temperatuur(1,:)),max(afkoeling_temperatuur(1,:))];
+        x = [min(afkoeling_temperatuur(1,:)),max(...
+            afkoeling_temperatuur(1,:))];
 
         y_fit = a*x+b;
         y_p = (a+sa)*x+(b+sb);
@@ -100,7 +105,8 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
 
 % PTC
 
-    [a,sa,b,sb] = LinRegWillOf(afkoeling_temperatuur(2,:),X_afkoeling(2,:),s_X_afkoeling(2,:));
+    [a,sa,b,sb] = LinRegWillOf(afkoeling_temperatuur(2,:),...
+        X_afkoeling(2,:),s_X_afkoeling(2,:));
 
     disp('Voor PTC (afkoeling):')
     disp(['    ','a = ',num2str(a),'+-',num2str(sa)])
@@ -108,14 +114,18 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
 
     % Plot maken
         figure(), grid on, box on, hold on;
-        errorbar(afkoeling_temperatuur(2,:),X_afkoeling(2,:),s_X_afkoeling(2,:),s_X_afkoeling(2,:),ones(1,length(afkoeling_temperatuur(2,:))),ones(1,length(afkoeling_temperatuur(2,:))),'k.','MarkerSize',12)
+        errorbar(afkoeling_temperatuur(2,:),X_afkoeling(2,:),...
+            s_X_afkoeling(2,:),s_X_afkoeling(2,:),ones(1,length(...
+            afkoeling_temperatuur(2,:))),ones(1,length(...
+            afkoeling_temperatuur(2,:))),'k.','MarkerSize',12)
 
         title('Weerstand PTC: Afkoeling: Lineaire Regressie')
         xlabel('Temperatuur \theta (°C)')
         ylabel('Weerstand X (\Omega)')
         %axis([15 70 1000 7000])
 
-        x = [min(afkoeling_temperatuur(2,:)),max(afkoeling_temperatuur(2,:))];
+        x = [min(afkoeling_temperatuur(2,:)),max(...
+            afkoeling_temperatuur(2,:))];
 
         y_fit = a*x+b;
         y_p = (a+sa)*x+(b+sb);
