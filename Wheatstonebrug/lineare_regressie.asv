@@ -1,0 +1,62 @@
+clear, clc, close all
+run('verwerking.m')
+
+%% NTC: Opwarming
+
+[a,sa,b,sb] = LinRegWillOf(theta_ntc,X_ntc,s_X_ntc);
+
+disp('Voor NTC:')
+disp(['    ','a = ',num2str(a),'+-',num2str(sa)])
+disp(['    ','b = ']
+
+% Plot maken
+    figure(), grid on, box on, hold on;
+    errorbar(theta_ntc,X_ntc,s_X_ntc,s_X_ntc,ones(1,length(theta_ntc)),...
+        ones(1,length(theta_ntc)),'k.','MarkerSize',12)
+
+    title('Weerstand NTC: Opwarming: Lineaire Regressie')
+    xlabel('Temperatuur \theta (°C)')
+    ylabel('Weerstand X (\Omega)')
+    axis([15 70 1000 7000])
+    
+    x = [min(theta_ntc),max(theta_ntc)];
+    
+    y_fit = a*x+b;
+    y_p = (a+sa)*x+(b+sb);
+    y_m = (a-sa)*x+(b-sb);
+    
+    plot(x,y_fit,'b--')
+    plot(x,y_p,'r-.')
+    plot(x,y_m,'r-.')
+    
+    legend('Data','Lineaire Fit','Foutenspie')
+    
+    clear a b sa sb y_fit y_p y_m x
+    
+%% PTC: Opwarming
+
+[a,sa,b,sb] = LinRegWillOf(theta_ptc,X_ptc,s_X_ptc);
+
+% Plot maken
+    figure(), grid on, box on, hold on;
+    errorbar(theta_ptc,X_ptc,s_X_ptc,s_X_ptc,ones(1,length(theta_ptc)),...
+        ones(1,length(theta_ptc)),'k.','MarkerSize',12)
+
+    title('Weerstand PTC: Opwarming: Lineaire Regressie')
+    xlabel('Temperatuur \theta (°C)')
+    ylabel('Weerstand X (\Omega)')
+    axis([15 70 200 1000])
+    
+    x = [min(theta_ptc),max(theta_ptc)];
+    
+    y_fit = a*x+b;
+    y_p = (a+sa)*x+(b+sb);
+    y_m = (a-sa)*x+(b-sb);
+    
+    plot(x,y_fit,'b--')
+    plot(x,y_p,'r-.')
+    plot(x,y_m,'r-.')
+    
+    legend('Data','Lineaire Fit','Foutenspie','Location','northwest')
+    
+    clear a b sa sb y_fit y_p y_m x
