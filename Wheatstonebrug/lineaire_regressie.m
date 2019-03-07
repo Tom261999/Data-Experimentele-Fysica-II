@@ -31,6 +31,11 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
     
     legend('Data','Lineaire Fit','Foutenspie')
     
+    tc_ntc_warm = a/b;
+    s_tc_ntc_warm = sqrt(sa^2*(1/b)+sb^2*(-a/b^2)^2);
+    disp(['TC_NTC_warm = ',num2str(tc_ntc_warm),'+-',...
+        num2str(s_tc_ntc_warm)])
+    
     clear a b sa sb y_fit y_p y_m x
     
 %% PTC: Opwarming
@@ -62,6 +67,11 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
     plot(x,y_m,'r-.')
     
     legend('Data','Lineaire Fit','Foutenspie','Location','northwest')
+    
+    tc_ptc_warm = a/b;
+    s_tc_ptc_warm = sqrt(sa^2*(1/b)+sb^2*(-a/b^2)^2);
+    disp(['TC_PTC_warm = ',num2str(tc_ptc_warm),'+-',...
+        num2str(s_tc_ptc_warm)])
     
     clear a b sa sb y_fit y_p y_m x
 
@@ -100,8 +110,14 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
         plot(x,y_m,'r-.')
 
         legend('Data','Lineaire Fit','Foutenspie')
+        
+        tc_ntc_koel = a/b;
+        s_tc_ntc_koel = sqrt(sa^2*(1/b+sb^2*(-a/b^2)^2));
+        disp(['TC_NTC_koel = ',num2str(tc_ntc_koel),'+-',...
+            num2str(s_tc_ntc_koel)])
 
         clear a b sa sb y_fit y_p y_m x
+        
 
 % PTC
 
@@ -136,5 +152,10 @@ disp(['    ','b = ',num2str(b),'+-',num2str(sb)])
         plot(x,y_m,'r-.')
 
         legend('Data','Lineaire Fit','Foutenspie')
+        
+        tc_ptc_koel = a/b;
+        s_tc_ptc_koel = sqrt(sa^2*(1/b+sb^2*(-a/b^2)^2));
+        disp(['TC_PTC_koel = ',num2str(tc_ptc_koel),'+-',...
+            num2str(s_tc_ptc_koel)])
 
         clear a b sa sb y_fit y_p y_m x

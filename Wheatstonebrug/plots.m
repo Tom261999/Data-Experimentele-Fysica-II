@@ -134,6 +134,6 @@ errorbar(afkoeling_temperatuur(2,:),X_afkoeling(2,:),s_X_afkoeling(2,:),...
     s_X_afkoeling(2,:),ones(1,length(afkoeling_temperatuur(2,:))),...
     ones(1,length(afkoeling_temperatuur(2,:))),'k.','MarkerSize',12)
 
-title('Weerstand NTC: Afkoeling')
+title('Weerstand PTC: Afkoeling')
 xlabel('Temperatuur \theta (°C)')
 ylabel('Weerstand X (\Omega)')
