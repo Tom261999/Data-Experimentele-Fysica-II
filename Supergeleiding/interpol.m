@@ -39,7 +39,7 @@ else
     % Dan nu propagatie, deze nog eens nakijken! (op de bus propageren is
     % ver van ideaal!!)
     px = ( y2 - y1 ) ./ ( x2 - x1 );
-    px1 = - ( y2 - y1 ) ./ ( x2 - x1 ) - ( x - x1 ) .* ( y2 - y1 ) ./ ( ( x2 - x1 ).^2 );
+    px1 = - ( y2 - y1 ) ./ ( x2 - x1 ) + ( x - x1 ) .* ( y2 - y1 ) ./ ( ( x2 - x1 ).^2 );
     px2 = ( x - x1 ) .* ( - ( y2 - y1 ) ./ ( ( x2 - x1 ).^2 ));
     py1 = ( x1 - x ) ./ ( x2 - x1 ) + 1;
     py2 = ( x - x1 ) ./ ( x2 - x1 ); 
