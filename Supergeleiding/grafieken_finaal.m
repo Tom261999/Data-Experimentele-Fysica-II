@@ -30,7 +30,7 @@ figure(), box on, grid on, hold all
 errorbar(T_1,weerstand_1,s_weerstand_1,s_weerstand_1,sT_1,sT_1,'b.--');
 errorbar(T_2,weerstand_2,s_weerstand_2,s_weerstand_2,sT_2,sT_2,'r.--');
 
-axis([75 155 0 0.09])
+axis([75 155 0 0.08])
 title('Weerstand van de Supergeleider i.f.v. de Temperatuur')
 xlabel('Temperatuur (K)')
 ylabel('Weerstand (\Omega)')
